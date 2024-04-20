@@ -110,7 +110,8 @@ yarn build
 - modal:close - закрытие модального окна
 
 ## Интерфейсы
-`export interface IPage {
+```
+export interface IPage {
     counter: number;
     catalog: HTMLElement[];
     locked: boolean;
@@ -172,4 +173,4 @@ export interface IBasketView {
     total: number;
     selected: string[];
 }
-`
+```
