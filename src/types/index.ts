@@ -46,6 +46,10 @@ export interface IOrderResult {
 }
 
 export interface ISuccess {
+    counter: number;
+
+}
+export interface ISuccessAction {
     onClick: (event: MouseEvent) => void;
 }
 
@@ -60,3 +64,5 @@ export interface IBasketView {
     total: number;
     selected: string[];
 }
+
+

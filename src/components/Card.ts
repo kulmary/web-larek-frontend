@@ -75,6 +75,20 @@ export class Card extends Component<IProduct> {
 
     set category(value: string) {
         this.setText(this._category, value)
+
+
+       if (value == 'другое') {
+            this._category?.classList?.add('card__category_other')
+        } else if (value == 'софт-скил') {
+            this._category?.classList?.add('card__category_soft')
+        } else if (value == 'дополнительное') {
+            this._category?.classList?.add('card__category_additional')
+        } else if (value == 'кнопка') {
+            this._category?.classList?.add('card__category_button')
+        } else if (value == 'хард-скил') {
+            this._category?.classList?.add('card__category_hard')
+        }
+   
     }
 
 

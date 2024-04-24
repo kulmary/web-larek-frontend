@@ -1,5 +1,5 @@
 import { View } from "../base/Components";
-import { EventEmitter } from "../base/events";
+import { IEvents } from "../base/events";
 import { ensureElement } from "../../utils/utils";
 import { IFormState } from "../../types";
 
@@ -7,7 +7,7 @@ export class Form<T> extends View<IFormState> {
     protected _submit: HTMLButtonElement;
     protected _errors: HTMLElement;
 
-    constructor(protected events: EventEmitter, protected container: HTMLFormElement) {
+    constructor(protected events: IEvents, protected container: HTMLFormElement) {
         super(events, container);
 
         this._submit = ensureElement<HTMLButtonElement>('button[type=submit]', this.container);
