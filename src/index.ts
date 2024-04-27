@@ -59,6 +59,7 @@ events.on('items:change', (items: IProduct[]) => {
 })
 
 events.on('preview:change', (item: IProduct) => {
+
     const card = new Card(cloneTemplate(cardPreviewTemplate), {
         onClick: () => {
             if (appData.inBasket(item)) {
@@ -68,6 +69,7 @@ events.on('preview:change', (item: IProduct) => {
                 appData.addIntoBasket(item)
                 card.button = 'Удалить из корзины';
             }
+            modal.close()
         }
     })
     card.button = appData.inBasket(item) ? 'Удалить из корзины' : 'В корзину';
@@ -76,11 +78,12 @@ events.on('preview:change', (item: IProduct) => {
 
 events.on('basket:change', () => {
     page.counter = appData.basket.items.length
-    basket.items = appData.basket.items.map((id) => {
+    basket.items = appData.basket.items.map((id,index) => {
         const item = appData.items.find((item) => item.id === id);
         const card = new Card(cloneTemplate(cardBasketTemplate), {
             onClick: () => appData.removeFromBasket(item)
         });
+        item.index=index+1;
         return card.render(item);
     });
     basket.total = appData.basket.total;

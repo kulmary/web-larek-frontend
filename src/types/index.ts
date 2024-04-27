@@ -20,6 +20,7 @@ export interface IProduct {
     title: string;
     category: string;
     price: number | null;
+    index?: number;
 }
 
 export interface IBasket {
@@ -36,6 +37,7 @@ export interface IOrder {
     address: string;
     total: number;
     items: string[];
+
 }
 
 export type OrderForm = Omit<IOrder, 'total' | 'items'>;

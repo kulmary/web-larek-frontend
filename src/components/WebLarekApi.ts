@@ -15,7 +15,6 @@ export class WebLarekAPI extends Api implements IWebLarekAPI {
         return this.get(`/product/${id}`).then(
             (item: IProduct) => ({
                 ...item,
-                image: this.cdn + item.image,
             })
         );
     }
@@ -30,7 +29,7 @@ export class WebLarekAPI extends Api implements IWebLarekAPI {
         return this.get('/product').then((data: ApiListResponse<IProduct>) =>
             data.items.map((item) => ({
                 ...item,
-                image: this.cdn + item.image
+                image: this.cdn + item.image,
             }))
         );
     }
