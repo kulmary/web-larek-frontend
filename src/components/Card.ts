@@ -16,7 +16,7 @@ export class Card extends Component<IProduct> {
     protected _button?: HTMLButtonElement;
     protected _price?: HTMLElement;
     protected _category: HTMLElement;
-    protected _index?: HTMLElement | null;
+    protected _index?: HTMLElement;
     constructor(container: HTMLElement, actions?: ICardActions) {
         super(container);
 
@@ -108,7 +108,7 @@ export class Card extends Component<IProduct> {
 	}
 
     set index(value: number) {
-		this._index.textContent = String(value);
+        this.setText(this._index, String(value));
 	}
 
     set button(value: string) {
